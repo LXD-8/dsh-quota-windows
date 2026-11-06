@@ -1,0 +1,5 @@
+# Quota windows bundle patch: one Host row that serves the snapshot route and
+# carries the Web client half.
+- insert:
+    - id: quota-windows
+      name: '@local/quota-windows'

@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Quota windows",
+    "description": "Shows the status of added providers whose usage or balance API is supported, such as OpenCode, Claude, DeepSeek, OpenRouter, Moonshot, Z.ai, and MiniMax."
+  }
+}
