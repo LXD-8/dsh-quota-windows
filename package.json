@@ -16,7 +16,9 @@
     "cordis.patch.yml",
     "locale/*.json",
     "icon.svg",
-    "README.md"
+    "README.md",
+    "LICENSE",
+    "docs/*.png"
   ],
   "dsh": {
     "bundle": {
@@ -32,5 +34,6 @@
   },
   "dependencies": {
     "@deepseek-ai/schemastery": "^3.19.0"
-  }
+  },
+  "license": "MIT"
 }

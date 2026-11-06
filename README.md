@@ -4,6 +4,8 @@ A Harness plugin that puts one **额度窗口 / Quota windows** entry in the lef
 sidebar and one page behind it, showing the subscription and balance status of
 every **added** provider whose usage or balance API this plugin supports.
 
+![Quota windows](docs/quota-windows.png)
+
 ## Install
 
 Clone this repository, then add it to your DSH profile as a linked dependency and
@@ -14,7 +16,11 @@ select the `quota-windows` bundle:
 ```
 
 The bundle name is `@local/quota-windows`; after the next load the sidebar entry
-appears.
+appears. Or install with the CLI:
+
+```bash
+dsh plugin --profile desktop add github:LXD-8/dsh-quota-windows
+```
 
 ## Which providers appear
 
@@ -95,3 +101,7 @@ runtime coercion applies if it is unavailable), for example in the profile patch
   provider-specific text remains as the detail after the localized prefix.
 - `node --test tests/*.test.mjs` covers the pure parsers and the OpenRouter,
   Moonshot, Z.ai, and MiniMax adapters against stubbed HTTP responses.
+
+## License
+
+MIT
