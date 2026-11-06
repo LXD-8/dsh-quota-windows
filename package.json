@@ -1,6 +1,6 @@
 {
   "name": "@local/quota-windows",
-  "version": "1.15.0",
+  "version": "1.16.0",
   "private": true,
   "type": "module",
   "description": "Shows the subscription and balance status of every added provider with a supported usage or balance API.",

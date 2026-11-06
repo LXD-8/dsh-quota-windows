@@ -801,25 +801,26 @@ window.__ModuleLoader__.load({
     }
 
     function QuotaIcon({ size = 16 }) {
-      // Gauge: a 270-degree scale with the unused quarter drawn faint, a needle
-      // pointing at the used share, and a hub. Stroke-only so the sidebar can
+      // Fuel pump: body, hose and a fuel drop. Stroke-only so the sidebar can
       // tint it for the active state.
       return h('svg', { width: size, height: size, viewBox: '0 0 24 24', fill: 'none', 'aria-hidden': true },
         h('path', {
-          d: 'M16.95 17.45A7 7 0 0 1 7.05 17.45',
+          d: 'M7.3 4.5h4.4a1.8 1.8 0 0 1 1.8 1.8V19H5.5V6.3a1.8 1.8 0 0 1 1.8-1.8Z',
           stroke: 'currentColor',
-          strokeOpacity: 0.28,
-          strokeWidth: 1.8,
-          strokeLinecap: 'round',
+          strokeWidth: 1.7,
+          strokeLinejoin: 'round',
         }),
         h('path', {
-          d: 'M7.05 17.45A7 7 0 1 1 16.95 17.45',
+          d: 'M13.5 6.2h1.4a1.6 1.6 0 0 1 1.6 1.6v4.5a1.6 1.6 0 0 0 3.2 0V7.4l-2.3-2.3',
           stroke: 'currentColor',
-          strokeWidth: 1.8,
+          strokeWidth: 1.7,
           strokeLinecap: 'round',
+          strokeLinejoin: 'round',
         }),
-        h('path', { d: 'M12 12.5L14.5 10', stroke: 'currentColor', strokeWidth: 1.8, strokeLinecap: 'round' }),
-        h('circle', { cx: 12, cy: 12.5, r: 1.35, fill: 'currentColor' }))
+        h('path', {
+          d: 'M9.5 10c1 1.2 1.6 2.1 1.6 2.7a1.6 1.6 0 1 1-3.2 0c0-.6.6-1.5 1.6-2.7Z',
+          fill: 'currentColor',
+        }))
     }
 
     return {
