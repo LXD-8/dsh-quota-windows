@@ -277,6 +277,7 @@ window.__ModuleLoader__.load({
 .qw-cardTitle p{margin:1px 0 0;font-size:12px;line-height:18px;color:var(--dsw-alias-label-secondary)}
 .qw-badge{flex:none;padding:3px 9px;border-radius:var(--dsw-radius-xl,20px);background:color-mix(in srgb,var(--dsw-alias-state-success-primary) 12%,transparent);color:var(--dsw-alias-state-success-primary);font-size:11px;line-height:16px}
 .qw-badge[data-status='error']{background:color-mix(in srgb,var(--dsw-alias-state-error-primary) 12%,transparent);color:var(--dsw-alias-state-error-primary)}
+.qw-badge[data-status='unconfigured']{background:var(--dsw-alias-bg-layer-2);color:var(--dsw-alias-label-secondary)}
 .qw-windows{display:flex;flex:1;flex-direction:column;gap:15px;min-width:0;margin:0;padding:0;list-style:none}
 .qw-windowTop{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:6px}
 .qw-windowLabel{font-size:13px;line-height:20px}
@@ -520,10 +521,13 @@ window.__ModuleLoader__.load({
 
     function CardHeader({ source, subtitle, t }) {
       const id = typeof source?.id === 'string' ? source.id : 'unknown'
-      const status = source?.status === 'ok' ? 'ok' : 'error'
-      const badge = status !== 'ok'
-        ? t('status.error')
-        : source?.kind === 'balance' && id === 'deepseek' ? t('status.balanceOk') : t('status.ok')
+      // A provider the user has not set up is a neutral fact, not a failure.
+      const status = source?.status === 'ok' ? 'ok' : source?.status === 'unconfigured' ? 'unconfigured' : 'error'
+      const badge = status === 'unconfigured'
+        ? t('status.unconfigured')
+        : status === 'error'
+          ? t('status.error')
+          : source?.kind === 'balance' && id === 'deepseek' ? t('status.balanceOk') : t('status.ok')
       const name = providerTitle(source, t)
       const mark = id === 'opencode' ? 'OC' : id === 'claude' ? 'CL' : id === 'deepseek' ? 'DS' : initials(name)
       return h('header', { className: 'qw-cardHead' },
@@ -797,10 +801,25 @@ window.__ModuleLoader__.load({
     }
 
     function QuotaIcon({ size = 16 }) {
+      // Gauge: a 270-degree scale with the unused quarter drawn faint, a needle
+      // pointing at the used share, and a hub. Stroke-only so the sidebar can
+      // tint it for the active state.
       return h('svg', { width: size, height: size, viewBox: '0 0 24 24', fill: 'none', 'aria-hidden': true },
-        h('path', { d: 'M4 17.5a8 8 0 0 1 16 0', stroke: 'currentColor', strokeWidth: 1.7, strokeLinecap: 'round' }),
-        h('path', { d: 'M12 17.5 16.2 11.4', stroke: 'currentColor', strokeWidth: 1.7, strokeLinecap: 'round' }),
-        h('circle', { cx: 12, cy: 17.5, r: 1.4, fill: 'currentColor' }))
+        h('path', {
+          d: 'M16.95 17.45A7 7 0 0 1 7.05 17.45',
+          stroke: 'currentColor',
+          strokeOpacity: 0.28,
+          strokeWidth: 1.8,
+          strokeLinecap: 'round',
+        }),
+        h('path', {
+          d: 'M7.05 17.45A7 7 0 1 1 16.95 17.45',
+          stroke: 'currentColor',
+          strokeWidth: 1.8,
+          strokeLinecap: 'round',
+        }),
+        h('path', { d: 'M12 12.5L14.5 10', stroke: 'currentColor', strokeWidth: 1.8, strokeLinecap: 'round' }),
+        h('circle', { cx: 12, cy: 12.5, r: 1.35, fill: 'currentColor' }))
     }
 
     return {

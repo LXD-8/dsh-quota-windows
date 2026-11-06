@@ -1,6 +1,17 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" fill="none">
-  <rect x="4" y="4" width="56" height="56" rx="14" fill="#4D6BFE" fill-opacity="0.12"/>
-  <path d="M16 43a16 16 0 0 1 32 0" stroke="#4D6BFE" stroke-width="4" stroke-linecap="round"/>
-  <path d="M32 43l8.5-12.5" stroke="#4D6BFE" stroke-width="4" stroke-linecap="round"/>
-  <circle cx="32" cy="43" r="3.2" fill="#4D6BFE"/>
+<svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M25.78 26.28A11 11 0 0 1 10.22 26.28" stroke="#658EFF" stroke-opacity="0.22" stroke-width="3" stroke-linecap="round" />
+  <path d="M10.22 26.28A11 11 0 1 1 25.78 26.28" stroke="url(#quota-arc)" stroke-width="3" stroke-linecap="round" />
+  <path d="M18 18.5L21.89 14.61" stroke="url(#quota-needle)" stroke-width="3" stroke-linecap="round" />
+  <circle cx="18" cy="18.5" r="2.1" fill="#3F77D8" />
+  <defs>
+    <linearGradient id="quota-arc" x1="9" y1="9" x2="27" y2="27" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#41E1AC" />
+      <stop offset="0.55" stop-color="#658EFF" />
+      <stop offset="1" stop-color="#3F77D8" />
+    </linearGradient>
+    <linearGradient id="quota-needle" x1="18" y1="18.5" x2="21.89" y2="14.61" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#658EFF" />
+      <stop offset="1" stop-color="#3F77D8" />
+    </linearGradient>
+  </defs>
 </svg>
