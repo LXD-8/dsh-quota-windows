@@ -4,6 +4,8 @@ A Harness plugin that puts one **额度窗口 / Quota windows** entry in the lef
 sidebar and one page behind it, showing the subscription and balance status of
 every **added** provider whose usage or balance API this plugin supports.
 
+![The 额度窗口 sidebar entry](docs/sidebar-icon.png)
+
 ![Quota windows](docs/quota-windows.png)
 
 ## Install
